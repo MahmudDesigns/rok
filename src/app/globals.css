@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-noto-sans), "Segoe UI", Arial, sans-serif;
+  --font-display: var(--font-plex-sans), "Segoe UI", Arial, sans-serif;
+  --font-mono: var(--font-plex-mono), "SFMono-Regular", Menlo, monospace;
+
+  --color-paper: #f6f4ee;
+  --color-ink: #1a1712;
+
+  --color-forest-50: #eef6f1;
+  --color-forest-100: #d9ecdf;
+  --color-forest-200: #b4d9c3;
+  --color-forest-300: #85bfa0;
+  --color-forest-400: #55a07c;
+  --color-forest-500: #378560;
+  --color-forest-600: #286b4d;
+  --color-forest-700: #215840;
+  --color-forest-800: #1b4634;
+  --color-forest-900: #123626;
+  --color-forest-950: #092118;
+
+  --color-ochre-50: #faf5e8;
+  --color-ochre-100: #f3e6c3;
+  --color-ochre-200: #e7d091;
+  --color-ochre-300: #dab764;
+  --color-ochre-400: #cf9f3d;
+  --color-ochre-500: #c08a2a;
+  --color-ochre-600: #a06c1f;
+  --color-ochre-700: #7d541b;
+  --color-ochre-800: #5e3f18;
+  --color-ochre-900: #452f14;
+
+  --color-flag-red: #9b1c2e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+}
+
+::selection {
+  background: var(--color-forest-200);
+  color: var(--color-forest-950);
+}
+
+@layer components {
+  .label {
+    @apply block font-display text-[11px] font-semibold uppercase tracking-[0.08em] text-stone-500 mb-1.5;
+  }
+  .input {
+    @apply w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-ink shadow-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-forest-600/25 focus:border-forest-600 transition;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-forest-700 px-4 py-2.5 font-display text-sm font-semibold text-white shadow-sm hover:bg-forest-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-700 disabled:opacity-60 disabled:pointer-events-none transition-colors;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 font-display text-sm font-semibold text-stone-800 shadow-sm ring-1 ring-inset ring-stone-300 hover:bg-stone-50 hover:ring-stone-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-700 disabled:opacity-60 disabled:pointer-events-none transition-colors;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 font-display text-sm font-semibold text-red-700 shadow-sm ring-1 ring-inset ring-red-300 hover:bg-red-50 disabled:opacity-60 disabled:pointer-events-none transition-colors;
+  }
+  .card {
+    @apply rounded-2xl border border-stone-200/90 bg-white shadow-[0_1px_2px_rgba(20,18,12,0.05)];
+  }
+  .num {
+    @apply font-mono tabular-nums;
+  }
+  .tbl {
+    @apply w-full text-sm;
+  }
+  .tbl thead th {
+    @apply border-b border-stone-200 px-4 py-3 text-left font-display text-[11px] font-semibold uppercase tracking-[0.08em] text-stone-500 whitespace-nowrap;
+  }
+  .tbl tbody td {
+    @apply border-b border-stone-100 px-4 py-3 align-middle;
+  }
+  .tbl tbody tr:last-child td {
+    @apply border-b-0;
+  }
+  .tbl tbody tr {
+    @apply transition-colors;
+  }
+  .tbl tbody tr:hover {
+    @apply bg-forest-50/60;
+  }
+}
+
+/* Subtle dotted texture for official surfaces */
+.dot-grid {
+  background-image: radial-gradient(rgba(9, 33, 24, 0.10) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Kenya flag ribbon */
+.flag-band {
+  background: linear-gradient(
+    90deg,
+    #14110d 0%,
+    #14110d 30%,
+    #9b1c2e 30%,
+    #9b1c2e 34%,
+    #ffffff 34%,
+    #ffffff 36%,
+    #1b6b3a 36%,
+    #1b6b3a 100%
+  );
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfc9ba;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
